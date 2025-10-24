@@ -45,4 +45,12 @@ public class GraphQlStudentsController {
 
         return students;
     }
+
+    @MutationMapping(name = "deleteStudent")
+    public String deleteStudent(@Argument String id){
+        Long studentId = Long.parseLong(id);
+        studentsService.deleteStudent(studentId);
+        return "Student deleted successfully";
+
+    }
 }
